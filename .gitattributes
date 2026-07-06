@@ -1,0 +1,15 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Unity files must have CRLF (or LF) normalized to prevent change detection issues
+*.cs text diff=csharp
+*.cginc text
+*.shader text
+
+# Keep scene and asset files as binary to avoid merge conflicts
+*.unity binary
+*.asset binary
+*.prefab binary
+*.mat binary
+*.meta text
+*.controller binary
