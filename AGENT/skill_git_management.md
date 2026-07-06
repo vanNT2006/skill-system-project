@@ -7,6 +7,7 @@ Mỗi commit message của AI phải tuân theo cấu trúc sau:
 `[loại]: [mô tả ngắn gọn bằng tiếng Việt hoặc tiếng Anh đơn giản]`
 
 ### Các loại commit (Types) bắt buộc dùng:
+* **`task[number]`** (Task Completion): **Dành riêng khi hoàn thành một bài học/nhiệm vụ trong Learning Log** (ví dụ: `task1: Create first scriptable object for skill node`).
 * **`feat`** (Feature): Khi thêm mã nguồn C# mới cho tính năng hoặc mechanic (ví dụ: `feat: add SkillNodeData class`).
 * **`fix`** (Bug Fix): Khi sửa lỗi code, lỗi UI hoặc lỗi biên dịch (ví dụ: `fix: repair null reference in skill manager`).
 * **`docs`** (Documentation): Thay đổi liên quan tới tài liệu, file `.md`, comment code (ví dụ: `docs: rewrite readme` hoặc `docs: update element reaction matrix`).
