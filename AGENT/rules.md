@@ -18,6 +18,7 @@ Tài liệu này định nghĩa các quy tắc, phong cách lập trình và cá
   1. Luôn áp dụng [skill_add_mechanic.md](skill_add_mechanic.md) trước (xử lý cấu hình cấu trúc 4 phần và cập nhật bảng tương tác).
   2. Sau đó áp dụng [skill_add_knowledge.md](skill_add_knowledge.md) để phân loại tài liệu và cập nhật [Sprint_Current.md](../Game_Knowledge_Base/04_Dev_Logs_&_Tasks/Sprint_Current.md).
 * Khi giao bài tập hoặc nhiệm vụ thực hành cho Văn, AI phải tuân thủ nghiêm ngặt quy trình trong [skill_assign_task.md](skill_assign_task.md) để chia nhỏ công việc, giải thích lý thuyết và cập nhật [Learning_Log.md](../Game_Knowledge_Base/04_Dev_Logs_&_Tasks/Learning_Log.md).
+* Khi thực hiện commit hoặc các thao tác Git, AI phải tuân thủ quy chuẩn commit message tại [skill_git_management.md](skill_git_management.md).
 * Tham chiếu các file quản lý trung tâm:
   - [Interaction_Matrix.md](../Game_Knowledge_Base/01_Architecture_&_Data/Interaction_Matrix.md): Nguồn duy nhất chứa toàn bộ phản ứng/tương tác phát sinh. Đọc khi thiết kế kỹ năng mới, cập nhật khi có tương tác mới.
   - [Master_Tag_List.md](../Game_Knowledge_Base/01_Architecture_&_Data/Master_Tag_List.md): Danh sách tag chuẩn hóa và quy định định danh ID. Đọc để gán tag/ID hợp lệ cho mechanic mới.
