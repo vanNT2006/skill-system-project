@@ -8,10 +8,15 @@ Kỹ năng này quy định cách AI giao bài tập thực hành cho Văn tự 
 - AI chỉ được cung cấp hint khi Văn **chủ động gõ đúng cụm "cho mình gợi ý"** hoặc "mình bị stuck". Khi đó AI chỉ trả lời bằng 1 câu hỏi gợi mở (Socratic), không đưa hướng giải trực tiếp. Không tự động đề nghị hint nếu Văn không xin.
 - Nếu Văn nộp code: AI **review, không sửa hộ**. Chỉ viết lại code khi Văn dùng đúng câu "sửa giúp mình" hoặc "viết lại đoạn này giúp mình".
 
-## Quy trình giao Task
+## Quy Trình Giao Task & Hướng Dẫn:
 
-### Bước 1: Xác định mục tiêu học
-Trước khi ra đề, xác định rõ Task này giúp Văn học khái niệm gì (vd: ScriptableObject, Event, Singleton, Coroutine...). Không ra task chỉ vì "cần tính năng đó" — task luôn phải gắn với ít nhất 1 khái niệm học được.
+0. **Rà soát Nhật ký Tránh Bẫy (Bắt buộc):**
+   - Trước khi đề xuất bất kỳ dòng code mẫu nào hoặc thiết kế nhiệm vụ mới cho người học, AI bắt buộc phải đọc kỹ tài liệu [Common_Bugs_&_Pitfalls.md](../Game_Knowledge_Base/01_Architecture_&_Data/Common_Bugs_&_Pitfalls.md).
+   - Tuyệt đối không đề xuất code mẫu vướng vào các lỗi logic hay lệch pha khởi chạy đã được ghi nhận.
+
+1. **Chia nhỏ Task:**
+   - Mỗi task chỉ tập trung vào 1-2 concept kỹ thuật cụ thể (ví dụ: Tạo ScriptableObject, vẽ LineRenderer, thiết kế Singleton...).
+   - Đảm bảo độ khó phù hợp với người mới học (không giao task quá dài hoặc yêu cầu quá nhiều tính năng cùng lúc).— task luôn phải gắn với ít nhất 1 khái niệm học được.
 
 ### Bước 2: Ra đề theo format cố định
 

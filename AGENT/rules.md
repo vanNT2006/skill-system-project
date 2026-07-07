@@ -22,4 +22,5 @@ Tài liệu này định nghĩa các quy tắc, phong cách lập trình và cá
 * Tham chiếu các file quản lý trung tâm:
   - [Interaction_Matrix.md](../Game_Knowledge_Base/01_Architecture_&_Data/Interaction_Matrix.md): Nguồn duy nhất chứa toàn bộ phản ứng/tương tác phát sinh. Đọc khi thiết kế kỹ năng mới, cập nhật khi có tương tác mới.
   - [Master_Tag_List.md](../Game_Knowledge_Base/01_Architecture_&_Data/Master_Tag_List.md): Danh sách tag chuẩn hóa và quy định định danh ID. Đọc để gán tag/ID hợp lệ cho mechanic mới.
+  - [Common_Bugs_&_Pitfalls.md](../Game_Knowledge_Base/01_Architecture_&_Data/Common_Bugs_&_Pitfalls.md): Nhật ký ghi nhận các lỗi logic và bẫy lập trình Unity/C#. AI bắt buộc phải đọc trước khi đề xuất code để tránh lặp lại sai lầm.
 * Các thay đổi về cấu trúc hoặc tính năng mới phải được cập nhật vào [Sprint_Current.md](../Game_Knowledge_Base/04_Dev_Logs_&_Tasks/Sprint_Current.md) trước khi tiến hành code.

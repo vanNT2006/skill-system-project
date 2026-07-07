@@ -8,6 +8,8 @@ public class SkillTreeUI : MonoBehaviour
     private TextMeshProUGUI _skillPointsText;
 
    private SkillNodeUI[] _nodeUIs;
+   private bool _isSubcribed = false;
+   
 
    private void Awake()
     {
@@ -16,24 +18,18 @@ public class SkillTreeUI : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SkillManager.Instance != null)
-        {
-            SkillManager.Instance.OnSkillPointsChanged += RefreshTreeUI;
-            SkillManager.Instance.OnSkillUnlocked += HandleSkillUnlocked;
-        }
+        SubscribeEvents();
+        RefreshTreeUI();
     }
 
     private void OnDisable()
     {
-        if (SkillManager.Instance != null)
-        {
-            SkillManager.Instance.OnSkillPointsChanged -= RefreshTreeUI;
-            SkillManager.Instance.OnSkillUnlocked -= HandleSkillUnlocked;
-        }
+        UnsubscribeEvents();
     }
 
     private void Start()
     {
+        SubscribeEvents();
         RefreshTreeUI();
     }
 
@@ -53,5 +49,21 @@ public class SkillTreeUI : MonoBehaviour
     private void HandleSkillUnlocked(SkillNodeData unlockedSkill)
     {
         RefreshTreeUI();
+    }
+
+    private void SubscribeEvents()
+    {
+        if (_isSubcribed && SkillManager.Instance == null) return;
+        SkillManager.Instance.OnSkillPointsChanged += RefreshTreeUI;
+        SkillManager.Instance.OnSkillUnlocked += HandleSkillUnlocked;
+        _isSubcribed = true;
+    }
+
+    private void UnsubscribeEvents()
+    {
+        if (!(_isSubcribed && SkillManager.Instance != null)) return;
+        SkillManager.Instance.OnSkillPointsChanged -= RefreshTreeUI;
+        SkillManager.Instance.OnSkillUnlocked -= HandleSkillUnlocked;
+        _isSubcribed = false;
     }
 }

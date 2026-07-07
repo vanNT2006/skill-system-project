@@ -55,27 +55,34 @@ public class SkillNodeUI : MonoBehaviour
         }
     }
 
-    public void UpdateUI()
-    {
-        if (SkillData == null || _backgroundImage == null || _iconImage == null) return;
-
-        if (SkillData.IsUnlocked)
-        {
-            _backgroundImage.color = _unlockedColor;
-            _iconImage.color = Color.white; // Normal icon color
-            _button.interactable = false; // Disable button if skill is unlocked
-        }
-        else if (SkillManager.Instance.CanUnlockSkill(SkillData))
-        {
-            _backgroundImage.color = _unlockableColor;
-            _iconImage.color = Color.white; // Normal icon color
-            _button.interactable = true; // Enable button if skill can be unlocked
-        }
-        else
-        {
-            _backgroundImage.color = _lockedColor;
-            _iconImage.color = Color.gray; // Dimmed icon color
-            _button.interactable = false; // Disable button if skill is locked
-        }
-    }
+    public void UpdateUI()                                                                                                                                                                                                            
+        {                                                                                                                                                                                                                                 
+            if (SkillData == null || _backgroundImage == null || _iconImage == null || _button == null)                                                                                                                                   
+            {                                                                                                                                                                                                                             
+                Debug.LogWarning($"[SkillNodeUI] Bị return ở đầu hàm do thiếu liên kết trên {gameObject.name}");                                                                                                                          
+                return;                                                                                                                                                                                                                   
+            }                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                          
+            if (SkillData.IsUnlocked)                                                                                                                                                                                                     
+            {                                                                                                                                                                                                                             
+                Debug.Log($"[SkillNodeUI] {gameObject.name} chạy vào nhánh UNLOCKED (Màu Xanh)");                                                                                                                                         
+                _backgroundImage.color = _unlockedColor;                                                                                                                                                                                  
+                _iconImage.color = Color.white;                                                                                                                                                                                           
+                _button.interactable = false;                                                                                                                                                                                             
+            }                                                                                                                                                                                                                             
+            else if (SkillManager.Instance.CanUnlockSkill(SkillData))                                                                                                                                                                     
+            {                                                                                                                                                                                                                             
+                Debug.Log($"[SkillNodeUI] {gameObject.name} chạy vào nhánh UNLOCKABLE (Màu Xám/Trắng)");                                                                                                                                  
+                _backgroundImage.color = _unlockableColor;                                                                                                                                                                                
+                _iconImage.color = Color.white;                                                                                                                                                                                           
+                _button.interactable = true;                                                                                                                                                                                              
+            }                                                                                                                                                                                                                             
+            else                                                                                                                                                                                                                          
+            {                                                                                                                                                                                                                             
+                Debug.Log($"[SkillNodeUI] {gameObject.name} chạy vào nhánh LOCKED (Màu Đỏ)");                                                                                                                                             
+                _backgroundImage.color = _lockedColor;                                                                                                                                                                                    
+                _iconImage.color = Color.gray;                                                                                                                                                                                            
+                _button.interactable = false;                                                                                                                                                                                             
+            }                                                                                                                                                                                                                             
+        } 
 }
