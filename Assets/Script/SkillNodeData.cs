@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public enum SkillType
+{
+    Elemental,
+    Form,
+    Passive
+}
+
 [CreateAssetMenu(fileName = "NewSkillNodeData", menuName = "Skills/SkillNodeData")]
 public class SkillNodeData : ScriptableObject
 {
@@ -13,6 +20,11 @@ public class SkillNodeData : ScriptableObject
     [Tooltip("Tên hiển thị của kỹ năng")]
     private string _name;
     public string Name => _name;
+
+    [SerializeField]
+    [Tooltip("Loại kỹ năng (ví dụ: Elemental, Form, Passive]")]
+    private SkillType _type;
+    public SkillType Type => _type;
 
     [SerializeField]
     [Tooltip("Mô tả của kỹ năng")]
