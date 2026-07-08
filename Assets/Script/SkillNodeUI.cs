@@ -28,6 +28,9 @@ public class SkillNodeUI : MonoBehaviour
     [SerializeField]
     private Color _unlockableColor = Color.gray;
 
+    private RectTransform _rectTransform;
+    public RectTransform RectTransform => _rectTransform ??= GetComponent<RectTransform>();
+
     private void Start()
     {
         if (SkillData == null)
