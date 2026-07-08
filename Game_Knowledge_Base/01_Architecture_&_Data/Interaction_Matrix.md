@@ -1,27 +1,34 @@
-# Ma Trận Tương Tác (Interaction Matrix)
+# Interaction Matrix
 
-Tài liệu này là NGUỒN DUY NHẤT (single source of truth) cho mọi tương tác phát sinh giữa các Element / Form / Modifier. Không mô tả lại tương tác trong file mechanic riêng lẻ — chỉ link tới đây.
+This document is the SINGLE SOURCE OF TRUTH for all emergent interactions between Elements, Forms, and Modifiers. Do not describe interactions inside individual mechanic files — only link to this document.
 
-## Cách dùng
-- Mỗi cặp thành phần chỉ được mô tả MỘT LẦN duy nhất tại đây.
-- Định dạng dòng: `[ID_A] + [ID_B] -> [Mô tả hiệu ứng] | Ghi chú cân bằng (nếu có)`
-- Khi thêm thành phần mới, phải bổ sung dòng tương tác với TẤT CẢ thành phần cùng nhóm tương thích đã tồn tại (xem quy trình trong [skill_add_mechanic.md](../../AGENT/skill_add_mechanic.md)).
+## How to Use
+- Each pair of components must be described ONCE.
+- Format: `[ID_A] + [ID_B] -> [Effect Description] | Balancing Notes`
+- When adding a new component, you must add its interactions with ALL compatible existing components.
 
-## Bảng tương tác
+## Interaction Tables
 
-### Element x Element
-| Cặp | Hiệu ứng | Ghi chú |
+### Element x Element (Elemental Reactions)
+| Pair | Effect Description | Balancing Notes |
 |---|---|---|
-| ELEM_FIRE + ELEM_WATER | Bốc hơi (Vaporize): Triệt tiêu thuộc tính Lửa, tạo ra màn sương làm giảm tầm nhìn của kẻ địch. | Cần điều chỉnh bán kính màn sương để tránh lag. |
+| `ELEM_FIRE + ELEM_WATER` | **EVAPORATE:** Deals high instant damage, clears both statuses, and spawns a steam cloud that reduces enemy visibility. | Steam cloud size should be limited to avoid lag. |
+| `ELEM_WATER + ELEM_ICE` | **FREEZE:** Immobilizes the target completely for 2.0 seconds. | Add diminishing returns if applied repeatedly. |
+| `ELEM_FIRE + ELEM_ICE` | **MELT:** Deals 200% damage but immediately removes any active slow/freeze status from the target. | Good for high burst damage combos. |
+| `ELEM_WATER + ELEM_ELECTRIC` | **ELECTRIFY:** Spreads electric shock damage over time (DoT) to all wet enemies standing close to each other. | Limit search radius for chain lightning. |
 
 ### Element x Form
-| Cặp | Hiệu ứng | Ghi chú |
+| Pair | Effect Description | Balancing Notes |
 |---|---|---|
+| `ELEM_FIRE + FORM_PROJECTILE` | **FIREBALL:** Projectile inflicts Burn status on impact (DoT damage). | Fireball speed is average. |
+| `ELEM_ICE + FORM_AOE` | **FROST_ZONE:** Spawns a freezing ground zone that slows all enemies entering it by 50%. | Zone duration should be around 4 seconds. |
 
 ### Element x Modifier
-| Cặp | Hiệu ứng | Ghi chú |
+| Pair | Effect Description | Balancing Notes |
 |---|---|---|
 
 ### Form x Modifier
-| Cặp | Hiệu ứng | Ghi chú |
+| Pair | Effect Description | Balancing Notes |
 |---|---|---|
+| `FORM_PROJECTILE + MOD_HOMING` | **HOMING_ARROW:** The projectile automatically steers toward the nearest enemy. | Reduce projectile turn speed to allow dodging. |
+| `FORM_PROJECTILE + MOD_BOUNCING` | **BOUNCING_BULLET:** The projectile bounces off walls and enemies up to 3 times. | Reduce damage by 15% on each bounce. |
